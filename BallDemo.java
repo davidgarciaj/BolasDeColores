@@ -44,7 +44,7 @@ public class BallDemo
         colores[0]= Color.DARK_GRAY;
         BouncingBall[] balls = new BouncingBall[numBall];
         for(int i = 0; i < balls.length; i++){
-            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1, rdn.nextInt(100)+1, Color.BLUE, ground, myCanvas);
+            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1, rdn.nextInt(100)+1, colores[rdn.nextInt(6)], ground, myCanvas);
             balls[i].draw();
         }
 
@@ -52,9 +52,9 @@ public class BallDemo
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            balls[1].move();
+            balls[0].move();
             // stop once ball has travelled a certain distance on x axis
-            if(balls[1].getXPosition() >= 550) {
+            if(balls[0].getXPosition() >= 550) {
                 finished = true;
             }
         }
