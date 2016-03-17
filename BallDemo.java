@@ -37,7 +37,7 @@ public class BallDemo
         Random rdn = new Random(); 
         BouncingBall[] balls = new BouncingBall[numBall];
         for(int i = 0; i < balls.length; i++){
-            balls[i] =  new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
+            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, 50, 16, Color.BLUE, ground, myCanvas);
             balls[i].draw();
         }
 
