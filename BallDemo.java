@@ -35,16 +35,11 @@ public class BallDemo
 
         // crate and show the balls
         Random rdn = new Random(); 
-        Color[] colores = new Color[6];
-        colores[0]= Color.GREEN;
-        colores[0]= Color.YELLOW;
-        colores[0]= Color.BLUE;
-        colores[0]= Color.RED;
-        colores[0]= Color.BLACK;
-        colores[0]= Color.DARK_GRAY;
+        
         BouncingBall[] balls = new BouncingBall[numBall];
         for(int i = 0; i < balls.length; i++){
-            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1, rdn.nextInt(100)+1, colores[rdn.nextInt(6)], ground, myCanvas);
+            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1,
+                rdn.nextInt(100)+1, new Color(rdn.nextInt(256),rdn.nextInt(256),rdn.nextInt(256)), ground, myCanvas);
             balls[i].draw();
         }
 
@@ -52,10 +47,12 @@ public class BallDemo
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            balls[0].move();
+            for(int i = 0; i < balls.length; i++){balls[i].move();}
             // stop once ball has travelled a certain distance on x axis
-            if(balls[0].getXPosition() >= 550) {
-                finished = true;
+            for(int i = 0; i < balls.length; i++){
+                if(balls[i].getXPosition() >= 550) {
+                    finished = true;
+                }
             }
         }
     }
