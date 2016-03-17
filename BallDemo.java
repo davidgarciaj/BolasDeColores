@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -23,7 +24,7 @@ public class BallDemo
     /**
      * Simulate two bouncing balls
      */
-    public void bounce()
+    public void bounce(int numBall)
     {
         int ground = 400;   // position of the ground line
 
@@ -33,19 +34,20 @@ public class BallDemo
         myCanvas.drawLine(50, ground, 550, ground);
 
         // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
+        Random rdn = new Random(); 
+        BouncingBall[] balls = new BouncingBall[numBall];
+        for(int i = 0; i < balls.length; i++){
+            balls[i] =  new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
+            balls[i].draw();
+        }
 
         // make them bounce
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
+            balls[1].move();
             // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
+            if(balls[1].getXPosition() >= 550) {
                 finished = true;
             }
         }
