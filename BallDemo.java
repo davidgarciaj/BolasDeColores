@@ -35,9 +35,16 @@ public class BallDemo
 
         // crate and show the balls
         Random rdn = new Random(); 
+        Color[] colores = new Color[6];
+        colores[0]= Color.GREEN;
+        colores[0]= Color.YELLOW;
+        colores[0]= Color.BLUE;
+        colores[0]= Color.RED;
+        colores[0]= Color.BLACK;
+        colores[0]= Color.DARK_GRAY;
         BouncingBall[] balls = new BouncingBall[numBall];
         for(int i = 0; i < balls.length; i++){
-            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, 50, 16, Color.BLUE, ground, myCanvas);
+            balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1, rdn.nextInt(100)+1, Color.BLUE, ground, myCanvas);
             balls[i].draw();
         }
 
