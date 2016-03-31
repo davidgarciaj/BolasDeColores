@@ -40,7 +40,7 @@ public class BallDemo
 
         BoxBall[] balls = new BoxBall[numBall];
         for(int i = 0; i < balls.length; i++){
-            balls[i] =  new BoxBall( rdn.nextInt(200)+200, rdn.nextInt(200)+150,
+            balls[i] =  new BoxBall( rdn.nextInt(170)+200, rdn.nextInt(170)+150,
                 rdn.nextInt(20)+10,150,350,200,400,myCanvas);
             balls[i].draw();
         }

@@ -27,10 +27,10 @@ public class BoxBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPositionTop;      // y position of ground in top
-    private final int groundPositionBottom;      // y position of ground    
-    private final int lateralPositionLeft;      // x position left
-    private final int lateralPositionRight;      // x position right
+    private final int groundPositionTop;      // posicion y mas alta
+    private final int groundPositionBottom;      // posicion y mas baja    
+    private final int lateralPositionLeft;      // posicion x mas a la izquierda
+    private final int lateralPositionRight;      // posicion x mas a la derecha
     private Canvas canvas;
     private int xIncrement;
     private int yIncrement;
