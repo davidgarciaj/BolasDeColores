@@ -29,7 +29,11 @@ public class BallDemo
         myCanvas.setVisible(true);
         
         //create the square
-        myCanvas.fillRectangle(200, 150, 200, 200);
+        myCanvas.drawLine(200, 150, 200,350);
+        myCanvas.drawLine(200, 350, 400,350);
+        myCanvas.drawLine(400, 150, 400,350);
+        myCanvas.drawLine(400, 150, 200,150);
+
 
         // crate and show the balls
         Random rdn = new Random(); 
@@ -37,7 +41,7 @@ public class BallDemo
         BoxBall[] balls = new BoxBall[numBall];
         for(int i = 0; i < balls.length; i++){
             balls[i] =  new BoxBall( rdn.nextInt(200)+200, rdn.nextInt(200)+150,
-                rdn.nextInt(20)+10,150,350,200,400, myCanvas);
+                rdn.nextInt(20)+10,150,350,200,400,myCanvas);
             balls[i].draw();
         }
 

@@ -21,7 +21,6 @@ import java.util.Random;
 public class BoxBall
 {
 
-    private boolean firstMove;
     private Random rdn; 
     private Ellipse2D.Double circle;
     private Color color;
@@ -49,7 +48,6 @@ public class BoxBall
     public BoxBall(int xPos, int yPos, int ballDiameter,
                         int groundPosT,int groundPosB, int lPosL,int lPosR, Canvas drawingCanvas)
     {
-        firstMove = true;
         rdn = new Random(); 
         xPosition = xPos;
         yPosition = yPos;
@@ -91,7 +89,7 @@ public class BoxBall
         erase();
             
         // compute new position
-        if(firstMove){
+        if(yIncrement == 0){
             if(rdn.nextBoolean()){
                 yIncrement = 1;
             }
