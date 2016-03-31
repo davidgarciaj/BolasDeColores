@@ -22,6 +22,38 @@ public class BallDemo
     }
 
     /**
+     * Simulate bouncing balls into a box.
+     */
+    public void boxBounce(int numBall)
+    {
+        myCanvas.setVisible(true);
+        
+        //create the square
+        myCanvas.fillRectangle(200, 150, 200, 200);
+
+        // crate and show the balls
+        Random rdn = new Random(); 
+
+        BoxBall[] balls = new BoxBall[numBall];
+        for(int i = 0; i < balls.length; i++){
+            balls[i] =  new BoxBall( rdn.nextInt(200)+200, rdn.nextInt(200)+150,
+                rdn.nextInt(20)+10,150,350,200,400, myCanvas);
+            balls[i].draw();
+        }
+
+        // make them bounce
+        boolean finished =  false;
+        while(!finished) {
+            myCanvas.wait(50);           // small delay
+            for(int i = 0; i < balls.length; i++){
+                balls[i].move();
+                // stop once ball has travelled a certain distance on x axis
+            }
+        }
+    
+    }
+
+    /**
      * Simulate two bouncing balls
      */
     public void bounce(int numBall)
@@ -35,7 +67,7 @@ public class BallDemo
 
         // crate and show the balls
         Random rdn = new Random(); 
-        
+
         BouncingBall[] balls = new BouncingBall[numBall];
         for(int i = 0; i < balls.length; i++){
             balls[i] =  new BouncingBall( rdn.nextInt(300)+1, rdn.nextInt(250)+1,
@@ -47,9 +79,9 @@ public class BallDemo
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
-            for(int i = 0; i < balls.length; i++){balls[i].move();}
-            // stop once ball has travelled a certain distance on x axis
             for(int i = 0; i < balls.length; i++){
+                balls[i].move();
+                // stop once ball has travelled a certain distance on x axis
                 if(balls[i].getXPosition() >= 550) {
                     finished = true;
                 }
